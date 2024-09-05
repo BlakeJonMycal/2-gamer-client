@@ -9,7 +9,7 @@ export const GameDetails = () => {
     const getGameDetailsFromAPI = async () => {
         const response = await fetch(`http://localhost:8000/games/${gameId}`, {
             headers: {
-                "Authorization": `Token ${JSON.parse(localStorage.getItem("game_token")).token}`
+                "Authorization": `Token ${JSON.parse(localStorage.getItem("rater_token")).token}`
             }
         })
         const parsedJSONString = await response.json()
