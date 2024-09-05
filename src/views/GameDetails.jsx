@@ -19,6 +19,25 @@ export const GameDetails = () => {
         getGameDetailsFromAPI()
     }, [gameId])
 
+    if (!game) {
+        return <div>Loading...</div>;
+    }
 
-
+    return (
+        <div className="p-5">
+            <h1 className="text-3xl">{game.title}</h1>
+            <p><strong>Description:</strong> {game.description}</p>
+            <p><strong>Designer:</strong> {game.designer}</p>
+            <p><strong>Year Released:</strong> {game.year_released}</p>
+            <p><strong>Number of Players:</strong> {game.number_of_players}</p>
+            <p><strong>Estimated Play Time:</strong> {game.estimated_play_time}</p>
+            <p><strong>Age Recommendation:</strong> {game.age_recommendation}</p>
+            <p><strong>Categories</strong></p>
+            <ul>
+                {game.categories.map(category => (
+                    <li key={category.id}>{category.name}</li>
+                ))}
+            </ul>
+        </div>
+    )
 }
